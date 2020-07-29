@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from bs4 import BeautifulSoup
-import requests
 from urllib.request import urlopen
 
 # Create your views here.
