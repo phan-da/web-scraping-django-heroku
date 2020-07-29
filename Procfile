@@ -1,0 +1,1 @@
+web: gunicorn webscrapeproject.wsgi --log-file -
