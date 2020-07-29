@@ -1,6 +1,5 @@
 from django.shortcuts import render
-import bs4
-import django
+from bs4 import BeautifulSoup
 import requests
 from urllib.request import urlopen
 
@@ -11,7 +10,7 @@ def itjob(request):
     temp_position_name = list()
     temp_location = list()
     html = urlopen('https://itviec.com/it-jobs/python-django/ho-chi-minh-hcm')
-    soup = bs4(html, 'html.parser')
+    soup = BeautifulSoup(html, 'html.parser')
     postings = soup.find_all("div", class_="details")
     for p in postings:
         title = p.find('a').text
@@ -21,7 +20,7 @@ def itjob(request):
 def hotwheels(request):
     temp_product_desire_ebay = list()
     html = urlopen('https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=hot+wheel+redline&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=hot+wheel+%2767+camaro')
-    soup = bs4(html, 'html.parser')
+    soup = BeautifulSoup(html, 'html.parser')
     products = soup.find_all('li', class_='s-item s-item--watch-at-corner')
     for p in products:
         name = p.find('a', class_='s-item__link').text
